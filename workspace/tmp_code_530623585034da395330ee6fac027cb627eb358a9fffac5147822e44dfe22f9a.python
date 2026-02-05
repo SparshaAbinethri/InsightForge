@@ -1,0 +1,37 @@
+   import pandas as pd
+
+   # Load the CSV file
+   file_path = 'workspace/input/ecommerce_sales_data.csv'
+   df = pd.read_csv(file_path)
+
+   # Inspect the schema and the first few rows of the dataframe
+   schema = df.info()
+   head = df.head()
+
+   # Summarize the information
+   data_summary = {
+       'columns': df.columns.tolist(),
+       'data_types': df.dtypes.to_dict(),
+       'head': head
+   }
+
+   # Print results
+   print(schema)
+   print(head)
+
+   # Clean and save the data to the specified path
+   cleaned_file_path = 'workspace/output/cleaned.csv'
+   df.to_csv(cleaned_file_path, index=False)
+
+   # Create a markdown report
+   report_content = """
+   # E-commerce Sales Data Report
+
+   ## Data Overview
+
+   The dataset comprises the following columns:
+   - **Column Names**: {}
+   - **Data Types**: {}
+
+   ### Sample Data
+   

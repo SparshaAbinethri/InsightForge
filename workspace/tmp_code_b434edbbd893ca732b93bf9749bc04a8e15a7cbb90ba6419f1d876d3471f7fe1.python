@@ -1,0 +1,12 @@
+import pandas as pd
+
+# Load the CSV file
+file_path = 'workspace/input/ecommerce_sales_data.csv'
+df = pd.read_csv(file_path)
+
+# Inspect the schema and the first few rows of the dataframe
+schema = df.info()
+head = df.head()
+
+print(schema)
+print(head)
